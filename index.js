@@ -4,26 +4,23 @@ import './style.css';
 let myChart;
 let colors = {
   mainFirst: 'rgba(54, 50, 133, 1)', // main 系列
-  shadow: 'rgba(40, 26, 112, 0.6)',
-  nowNoRain: 'rgba(255, 210, 89, 1)', // nowNoRain 系列
-  nowNoRainSec: 'rgba(255, 210, 89, 0.6)',
-  nowNoRainThird: 'rgba(255, 210, 89, 0)',
-  nowRain: 'rgba(0, 181, 255, 1)', // nowRain 系列
-  nowRainSec: 'rgba(0, 181, 255, 0.4)',
-  nowRainThird: 'rgba(0, 181, 255, 0)',
-  pastNoRain: 'rgba(255, 177, 57, 1)', // pastNoRain 系列
-  pastRain: 'rgba(64, 208, 203, 1)', // pastRain 系列
+  shadow: 'rgba(122, 212, 255, 0.6)',
+  gradientFirst: 'rgba(122, 212, 255, 1)', // gradient 系列
+  gradientSec: 'rgba(60, 158, 205, 1)',
+  gradientThird: 'rgba(110, 86, 140, 1)',
   lightFirst: 'rgba(255, 255, 255, 1)', // light 系列
   lightSec: 'rgba(255, 255, 255, 0.5)',
   lightThird: 'rgba(255, 255, 255, 0.2)',
   lightForth: 'rgba(255, 255, 255, 0.15)',
   lightZero: 'rgba(255, 255, 255, 0)',
-  gradientFirstStart: 'rgba(255, 159, 162, 1)', // gradient 系列
-  gradientFirstEnd: 'rgba(109, 37, 244, 1)',
-  gradientSecStart: 'rgba(255, 159, 162, 0.2)',
-  gradientSecEnd: 'rgba(109, 37, 244, 0.2)',
-  gradientThirdStart: 'rgba(110, 86, 140, 1)',
-  gradientThirdEnd: 'rgba(65, 53, 155, 1)',
+  color1: 'rgba(255, 210, 89, 1)', // color1 系列
+  color1Sec: 'rgba(255, 210, 89, 0.6)',
+  color1Third: 'rgba(255, 210, 89, 0)',
+  color2: 'rgba(0, 181, 255, 1)', // color2 系列
+  color2Sec: 'rgba(0, 181, 255, 0.4)',
+  color2Third: 'rgba(0, 181, 255, 0)',
+  // pastNoRain: 'rgba(255, 177, 57, 1)', // pastNoRain 系列
+  // pastRain: 'rgba(64, 208, 203, 1)', // pastRain 系列
 };
 let _datazoom = {
   start: 25,
@@ -108,21 +105,6 @@ let option = {
       // focus 區域
       value: '',
       snap: true,
-      lineStyle: {
-        type: 'solid',
-        cap: 'butt', // or 'round'
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: colors.gradientSecStart,
-          },
-          {
-            offset: 1,
-            color: colors.gradientSecEnd,
-          },
-        ]),
-        width: 30,
-      },
       label: {
         // focus 標籤區域
         show: true,
@@ -130,27 +112,8 @@ let option = {
         margin: 7,
         borderRadius: 12,
         borderWidth: 1,
-        borderColor: new echarts.graphic.LinearGradient(1, 0, 0, 1, [
-          {
-            offset: 0,
-            color: colors.gradientFirstStart,
-          },
-          {
-            offset: 1,
-            color: colors.gradientFirstEnd,
-          },
-        ]),
-        backgroundColor: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: colors.gradientThirdStart,
-          },
-          {
-            offset: 1,
-            color: colors.gradientThirdEnd,
-          },
-        ]),
-        // shadowColor:  colors.shadow,
+        backgroundColor: colors.gradientSec,
+        shadowColor: colors.shadow,
         shadowBlur: 0,
         // shadowOffsetY: 12,
         textStyle: {
@@ -210,23 +173,23 @@ let option = {
       showSymbol: false,
       smooth: true,
       data: getRandomData(45, 55, 24),
-      color: colors.nowNoRain,
+      color: colors.color1,
       areaStyle: {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
             offset: 0,
-            color: colors.nowNoRainSec,
+            color: colors.color1Sec,
           },
           {
             offset: 1,
-            color: colors.nowNoRainThird,
+            color: colors.color1Third,
           },
         ]),
       },
       emphasis: {
         itemStyle: {
-          color: colors.nowNoRain,
-          borderColor: colors.nowNoRain,
+          color: colors.color1,
+          borderColor: colors.color1,
           borderWidth: 5,
           shadowBlur: 3,
           shadowColor: colors.shadow,
