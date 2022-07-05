@@ -3,13 +3,13 @@ import './style.css';
 
 let myChart;
 let colors = {
-  mainFirst: 'rgba(54, 50, 133, 1)', // main 系列
+  mainFirst: 'rgba(60, 158, 205, 1)', // main 系列
   shadow: 'rgba(122, 212, 255, 0.6)',
-  gradientFirst: 'rgba(122, 212, 255, 1)', // gradient 系列
-  gradientSec: 'rgba(60, 158, 205, 1)',
-  gradientThird: 'rgba(110, 86, 140, 1)',
+  gradientFirst: 'rgba(60, 158, 205, 1)', // gradient 系列
+  gradientSec: 'rgba(60, 158, 205, 0.5)',
+  // gradientThird: 'rgba(110, 86, 140, 1)',
   lightFirst: 'rgba(255, 255, 255, 1)', // light 系列
-  lightSec: 'rgba(255, 255, 255, 0.5)',
+  lightSec: 'rgba(255, 255, 255, 0.6)',
   lightThird: 'rgba(255, 255, 255, 0.2)',
   lightForth: 'rgba(255, 255, 255, 0.15)',
   lightZero: 'rgba(255, 255, 255, 0)',
@@ -63,16 +63,16 @@ let option = {
         ? params.map((m) => m.marker + ' ' + m.value).join('<br />')
         : '';
     },
-    // borderWidth: 1,
-    // borderRadius: 12,
-    // borderColor: colors.lightThird,
-    // backgroundColor: colors.mainFirst,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: colors.lightThird,
+    backgroundColor: colors.gradientFirst,
     // shadowColor: colors.shadow,
-    // shadowBlur: 10,
-    // shadowOffsetY: 12,
-    // textStyle: {
-    //   color: colors.lightFirst,
-    // },
+    shadowBlur: 10,
+    shadowOffsetY: 12,
+    textStyle: {
+      color: colors.lightFirst,
+    },
     position: function (pos, params, dom, rect, size) {
       // 鼠标在左侧时 tooltip 显示到右侧，鼠标在右侧时 tooltip 显示到左侧。
       var obj = { top: 60 };
@@ -82,16 +82,14 @@ let option = {
   },
   xAxis: {
     axisLine: {
-      // x 軸線
-      onZero: true,
+      onZero: true, // x 軸線
       lineStyle: {
         color: colors.lightForth,
         shadowColor: colors.lightFirst,
       },
     },
     axisLabel: {
-      // x 軸文字
-      formatter: '{value}',
+      formatter: '{value}', // x 軸文字
       color: colors.lightSec,
       margin: 12,
     },
@@ -102,27 +100,20 @@ let option = {
       show: true, // 顯示刻度
     },
     axisPointer: {
-      // focus 區域
-      value: '',
+      value: '', // focus 區域
       snap: true,
       label: {
         // focus 標籤區域
         show: true,
         formatter: '{value}',
         margin: 7,
-        borderRadius: 12,
-        borderWidth: 1,
-        backgroundColor: colors.gradientSec,
+        backgroundColor: colors.mainFirst,
         shadowColor: colors.shadow,
         shadowBlur: 0,
-        // shadowOffsetY: 12,
-        textStyle: {
-          color: colors.lightFirst,
-        },
       },
       handle: {
         show: true, // 手把
-        icon: 'image://../../../../images/rain/h5/charts-handle.svg',
+        icon: 'image:/images/charts-handle.svg',
         size: [32, 3],
         margin: -250,
         // color: '#7581BD',
@@ -141,15 +132,19 @@ let option = {
   },
   yAxis: [
     {
+      show: true,
+      type: 'value',
+      axisLabel: {
+        formatter: '{value}',
+        color: colors.lightSec, // y 軸文字
+        margin: 12,
+      },
       splitLine: {
-        // 刻度線
-        show: true,
+        show: true, // 刻度線
         lineStyle: {
           color: colors.lightThird,
         },
       },
-      show: true,
-      type: 'value',
       min: function (value) {
         return value.min - 10;
       },
@@ -168,7 +163,7 @@ let option = {
   // ],
   series: [
     {
-      name: 'now-no-rain',
+      name: 'Taiwan Cathay Real Estate Index', // 國泰房地產指數
       type: 'line',
       showSymbol: false,
       smooth: true,
