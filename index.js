@@ -8,6 +8,8 @@ let colors = {
   gradientFirst: 'rgba(60, 158, 205, 1)', // gradient 系列
   gradientSec: 'rgba(60, 158, 205, 0.5)',
   // gradientThird: 'rgba(110, 86, 140, 1)',
+  grayFirst: 'rgba(75, 78, 82, 1)', // gray 系列
+  graySec: 'rgba(75, 80, 72, 0.5)',
   lightFirst: 'rgba(255, 255, 255, 1)', // light 系列
   lightSec: 'rgba(255, 255, 255, 0.6)',
   lightThird: 'rgba(255, 255, 255, 0.2)',
@@ -65,8 +67,8 @@ let option = {
     },
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: colors.lightThird,
-    backgroundColor: colors.gradientFirst,
+    borderColor: colors.graySec,
+    backgroundColor: colors.grayFirst,
     // shadowColor: colors.shadow,
     shadowBlur: 10,
     shadowOffsetY: 12,
