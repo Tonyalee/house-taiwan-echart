@@ -39,8 +39,6 @@ let option = {
     textStyle: {
       color: '#fff',
       with: '100%',
-      // lineHeight: 50,
-      // height: 50,
     },
   },
   color: colors.nowNoRain,
@@ -105,13 +103,6 @@ let option = {
     // nameLocation: 'center',
     axisTick: {
       show: true, // 顯示刻度
-    },
-    splitLine: {
-      // 刻度線
-      show: true,
-      lineStyle: {
-        color: colors.lightThird,
-      },
     },
     axisPointer: {
       // focus 區域
@@ -178,16 +169,23 @@ let option = {
     },
     type: 'category',
     data: (() => {
-      let times = [];
-      for (let i = 0; i < 24; i++) {
-        times.push(`${i}:00`, `${i}:30`);
+      let years = [];
+      for (let i = 0; i < 21; i++) {
+        years.push(i + 2000);
       }
-      return times;
+      return years;
     })(),
   },
   yAxis: [
     {
-      show: false,
+      splitLine: {
+        // 刻度線
+        show: true,
+        lineStyle: {
+          color: colors.lightThird,
+        },
+      },
+      show: true,
       type: 'value',
       min: function (value) {
         return value.min - 10;
@@ -197,14 +195,14 @@ let option = {
       },
     },
   ],
-  dataZoom: [
-    {
-      type: 'inside',
-      show: false,
-      start: _datazoom.start,
-      end: _datazoom.end,
-    },
-  ],
+  // dataZoom: [
+  //   {
+  //     type: 'inside',
+  //     show: false,
+  //     start: _datazoom.start,
+  //     end: _datazoom.end,
+  //   },
+  // ],
   series: [
     {
       name: 'now-no-rain',
