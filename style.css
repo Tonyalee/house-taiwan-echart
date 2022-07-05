@@ -1,0 +1,25 @@
+h1,
+h2 {
+  font-family: Lato;
+}
+body {
+  background-color: #eaeaea;
+}
+
+.state-wrap {
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  width: 50%;
+  /* // width: 100px;
+  // height: 100px; */
+  max-height: 500px;
+  padding: 10px 0;
+  background-color: #353030;
+}
+
+.state-chart {
+  display: block;
+  width: 100%;
+  min-height: 280px;
+}
