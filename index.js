@@ -1,5 +1,12 @@
 // Import stylesheets
 import './style.css';
+import { cathayIndex } from './data.js';
+
+console.log(cathayIndex);
+
+let DATA = Object.values(cathayIndex).reverse();
+
+console.log(DATA);
 
 let myChart;
 let colors = {
@@ -125,12 +132,21 @@ let option = {
     },
     type: 'category',
     data: (() => {
-      let years = [];
-      for (let i = 0; i < 21; i++) {
-        years.push(i + 2000);
-      }
-      return years;
+      const data = Object.keys(cathayIndex).reverse();
+      return data.map((v) => {
+        let [yy, qq] = v.split('Q');
+        yy = parseInt(yy) + 1911;
+        return `${yy}Q${qq}`;
+      });
     })(),
+    // data: Object.keys(cathayIndex).reverse(),
+    // data: (() => {
+    //   let years = [];
+    //   for (let i = 0; i < 21; i++) {
+    //     years.push(i + 2000);
+    //   }
+    //   return years;
+    // })(),
   },
   yAxis: [
     {
@@ -169,29 +185,20 @@ let option = {
       type: 'line',
       showSymbol: false,
       smooth: true,
-      data: getRandomData(45, 55, 24),
+      data: DATA,
       color: colors.color1,
-      areaStyle: {
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: colors.color1Sec,
-          },
-          {
-            offset: 1,
-            color: colors.color1Third,
-          },
-        ]),
-      },
-      emphasis: {
-        itemStyle: {
-          color: colors.color1,
-          borderColor: colors.color1,
-          borderWidth: 5,
-          shadowBlur: 3,
-          shadowColor: colors.shadow,
-        },
-      },
+      // areaStyle: {
+      //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      //     {
+      //       offset: 0,
+      //       color: colors.color1Sec,
+      //     },
+      //     {
+      //       offset: 1,
+      //       color: colors.color1Third,
+      //     },
+      //   ]),
+      // },
     },
   ],
 };
