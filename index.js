@@ -1,10 +1,13 @@
 // Import stylesheets
 import './style.css';
 import { cathayIndex } from './data.js';
+import { rediscountRate } from './data2.js';
 
 console.log(cathayIndex);
+console.log(rediscountRate);
 
 let DATA = Object.values(cathayIndex).reverse();
+let DATA2 = Object.values(rediscountRate).reverse();
 
 console.log(DATA);
 
@@ -28,8 +31,6 @@ let colors = {
   color2: 'rgba(0, 181, 255, 1)', // color2 系列
   color2Sec: 'rgba(0, 181, 255, 0.4)',
   color2Third: 'rgba(0, 181, 255, 0)',
-  // pastNoRain: 'rgba(255, 177, 57, 1)', // pastNoRain 系列
-  // pastRain: 'rgba(64, 208, 203, 1)', // pastRain 系列
 };
 let _datazoom = {
   start: 25,
@@ -139,6 +140,14 @@ let option = {
         return `${yy}Q${qq}`;
       });
     })(),
+    // data: (() => {
+    //   const data = Object.keys(cathayIndex).reverse();
+    //   return data.map((v) => {
+    //     let [yy, qq] = v.split('Q');
+    //     yy = parseInt(yy) + 1911;
+    //     return `${yy}Q${qq}`;
+    //   });
+    // })(),
     // data: Object.keys(cathayIndex).reverse(),
     // data: (() => {
     //   let years = [];
@@ -186,6 +195,26 @@ let option = {
       showSymbol: false,
       smooth: true,
       data: DATA,
+      color: colors.color1,
+      // areaStyle: {
+      //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+      //     {
+      //       offset: 0,
+      //       color: colors.color1Sec,
+      //     },
+      //     {
+      //       offset: 1,
+      //       color: colors.color1Third,
+      //     },
+      //   ]),
+      // },
+    },
+    {
+      name: 'Taiwan Rediscount Rate', // 重貼現率
+      type: 'line',
+      showSymbol: false,
+      smooth: true,
+      data: DATA2,
       color: colors.color1,
       // areaStyle: {
       //   color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
