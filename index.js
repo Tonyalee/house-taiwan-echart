@@ -10,6 +10,7 @@ let DATA = Object.values(cathayIndex).reverse();
 let DATA2 = Object.values(rediscountRate).reverse();
 
 console.log(DATA);
+console.log(DATA2);
 
 let myChart;
 let colors = {
@@ -32,6 +33,7 @@ let colors = {
   color2Sec: 'rgba(0, 181, 255, 0.4)',
   color2Third: 'rgba(0, 181, 255, 0)',
 };
+
 let _datazoom = {
   start: 25,
   end: 75,
@@ -237,6 +239,10 @@ function initChart() {
   myChart = echarts.init(chartDom);
   option = updateXaxisPointer(option);
   renderChart(option);
+}
+
+function prepareData() {
+  
 }
 
 // 設定資料 handle & 底線 & axisPointer
